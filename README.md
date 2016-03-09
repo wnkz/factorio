@@ -21,7 +21,7 @@ docker run --rm -it --volumes-from=$FACTORIO_DATA wnkz/factorio /opt/factorio/bi
 * Run the server
 
 ```
-docker run --name factorio --restart=always -p 34197:34197/udp --volumes-from=$FACTORIO_DATA wnkz/factorio /opt/factorio/bin/x64/factorio --start-server mygame
+docker run -d --name factorio --restart=always -p 34197:34197/udp --volumes-from=$FACTORIO_DATA wnkz/factorio /opt/factorio/bin/x64/factorio --start-server mygame
 ```
 
 ### Local volume mount (easier when you have existing saves)
@@ -31,5 +31,5 @@ docker run --name factorio --restart=always -p 34197:34197/udp --volumes-from=$F
 * Run the server
 
 ```
-docker run --name factorio --restart=always -p 34197:34197/udp -v ~/factorio_saves/mygame.zip:/opt/factorio/saves wnkz/factorio /opt/factorio/bin/x64/factorio --start-server mygame
+docker run -d --name factorio --restart=always -p 34197:34197/udp -v ~/factorio_saves:/opt/factorio/saves wnkz/factorio /opt/factorio/bin/x64/factorio --start-server mygame
 ```
